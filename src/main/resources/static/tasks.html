@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <div class="header-row">
+        <h3><span id="usernameSpan"></span></h3>
+        <button onclick="logout()">Выйти</button>
+    </div>
+
+
+    <h3>Статистика: прогресс за последние 5 дней</h3>
+    <canvas id="statsChart" width="400" height="200"></canvas>
+
+    <h3>Новая задача: </h3>
+    <div class="task-form">
+        <input type="text" id="taskTitle" placeholder="Название">
+        <textarea id="taskDesc" placeholder="Описание"></textarea>
+        <input type="date" id="taskDueDate">
+        <button onclick="createTask()">Добавить задачу</button>
+    </div>
+
+    <h3>Основные задачи: </h3>
+    <div id="tasksList"></div>
+
+</div>
+<script>
+    if (!localStorage.getItem('token')){
+        window.location.href = 'login.html';
+    }
+</script>
+<script src="/js/tasks.js"></script>
+
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Редактировать задачу</h3>
+        <input type="text" id="editTitle" placeholder="Название">
+        <textarea id="editDesc" placeholder="Описание"></textarea>
+        <input type="date" id="editDueDate">
+        <button id="saveEditBtn">Сохранить</button>
+        <div id="editError" class="error"></div>
+    </div>
+</div>
+</body>
+</html>

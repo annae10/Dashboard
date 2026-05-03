@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Авторизация / Регистрация - Планирование задач</title>
+    <link rel = "stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class = "container">
+    <h2>Система для управления задачами</h2>
+
+    <div class="tabs">
+        <button class="tablink active" id="loginTabBtn">Вход</button>
+        <button class="tablink" id="registerTabBtn">Регистрация</button>
+    </div>
+
+
+    <div id="loginForm" class="form-container active-form">
+        <input type="text" id="loginUsername" placeholder="Имя пользователя" autocomplete="username">
+        <input type="password" id="loginPassword" placeholder="Пароль" autocomplete="current-password">
+        <button id="loginBtn">Войти</button>
+        <div id="loginError" class="error"></div>
+    </div>
+
+    <div id="registerForm" class="form-container">
+        <input type="text" id="regUsername" placeholder="Имя пользователя" autocomplete="username">
+        <input type="password" id="regPassword" placeholder="Пароль" autocomplete="new-password">
+        <button id="registerBtn">Зарегистрироваться</button>
+        <div id="regError" class="error"></div>
+    </div>
+
+
+
+</div>
+<script>
+    if (localStorage.getItem('token')){
+        window.location.href = '/tasks.html';
+    }
+</script>
+<script src="/js/auth.js"></script>
+</body>
+</html>

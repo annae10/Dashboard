@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    margin: 0;
+    color: #1f2937;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(2px);
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(120deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-backgroud-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    padding-left: 0.75rem;
+}
+
+/**/
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tablink {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #718096;
+    transition: all 0.2s ease;
+    border-radius: 2rem 2rem 0 0;
+}
+
+.tablink:hover {
+    color: #4a5568;
+    background: #edf2f7;
+}
+
+.tablink.active {
+    color : #667eea;
+    border-bottom: 3px solid #667eea;
+    background: #f7fafc;
+}
+
+.form-container {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-container.active-form {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(8px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    margin: 0.6rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+button {
+    width: 200px;
+    padding: 0.85rem 1rem;
+    margin: 0.6rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+    font-family: inherit;
+
+}
+
+input:focus, textarea:focus{
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -8px rgba(102, 126, 234, 0.5);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.error {
+    color: #e53e3e;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.task-form {
+    background: #f9fafb;
+    padding: 1.2rem;
+    border-radius: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.task-item {
+    background: white;
+    border-radius: 1.2rem;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    border-left: 5px solid #667eea;
+}
+
+.task-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.task-item strong {
+    font-size: 1.1rem;
+    color: #2d3748;
+}
+
+.task-item label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    background: #f1f5f9;
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+}
+
+.task-item button {
+    width: auto;
+    padding: 0.3rem 1rem;
+    margin: 0 0.3rem;
+    background: #e2e8f0;
+    color: #1e293b;
+    font-size: 0.85rem;
+    box-shadow: none;
+}
+
+.task-item button:first-of-type {
+    background:#e0f2fe;
+    color: #0369a1;
+}
+
+.task-item button:last-of-type {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.task-item input[type="checkbox"]{
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #667eea;
+    margin:0;
+    vertical-align: middle;
+}
+
+canvas {
+    max-width: 100%;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 2rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    float: right;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #1e293b;
+}
+
+.button.logout-btn {
+    background:#f1f5f9;
+    color: #475569;
+    width: auto;
+    padding: 0.5rem 1.2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+@media(max-width: 640px){
+    .container {
+        padding: 1rem;
+    }
+    .task-item {
+        flex-direction: column;
+    }
+    .task-item label, .task-item button {
+        margin-top: 0.5rem;
+    }
+    .tabs {
+        gap: 0.5rem;
+    }
+    .tablink {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.header-row h2 {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.logout-btn {
+    width: 100px;
+    text-align: center;
+    white-space: nowrap;
+
+}
